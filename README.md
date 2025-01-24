@@ -30,13 +30,98 @@ A powerful and automated system for keeping your Laravel applications up-to-date
 - **Improved Security:**
     - Maintain the highest level of security for your application by keeping it up-to-date.
 
-**How it Works:**
+---
 
-1. **Prepare Update Package:**
-    - Create a ZIP archive containing the complete updated application files (excluding any sensitive data).
-2. **Upload Package:**
-    - Upload the ZIP file to the Updater system.
-3. **Automatic Processing:**
-    - The system extracts the files, performs database migrations, and updates the application's codebase.
-4. **Verification:**
-    - Verify the successful completion of the update process.
+### **1. Environment Requirements**
+
+To use this package, the Laravel application and server environment must meet the following criteria:
+
+#### **Server Requirements:**
+
+- **PHP Version**: `^8.0`
+- **Extensions**:
+    - `zip` (For working with zip files)
+    - `mbstring` (String operations)
+    - `openssl` (Encryption/decryption)
+    - `pdo` (Database operations)
+    - `json` (Handling JSON)
+
+#### **Laravel Version:**
+
+- Laravel `^9.0` or higher (compatible with PHP 8.0)
+
+## **Installation**
+
+### **1. Require the Package**
+
+Run the following Composer command:
+
+`composer require jobayer/laravel-application-system-updater`
+
+### **2. Publish Configuration and Views**
+
+Publish the configuration file and views for customization:
+
+`php artisan vendor:publish --tag=views`
+
+### **3. Register the Service Provider**
+
+If you're using Laravel 5.5 or later, the package will automatically register itself. For older versions, manually register the service provider in `config/app.php`:
+
+`'providers' => [Jobayer\LaravelAppUpdater\ServiceProvider::class,],`
+
+---
+
+## **Usage**
+
+### **1. Uploading and Extracting Updates**
+
+Use the following routes to handle updates:
+
+`https://Your-Application-url.com/system-updater `
+
+---
+##  **Workflow**
+
+###### 1. File Upload & Extraction
+
+- Upload a `.zip` file with updates.
+- Extract files to the correct directories in the Laravel application.
+- Replace existing files and add new ones.
+
+###### 2. Database Update
+
+- Make sure `database/update-schema.sql` database is present.
+- Execute custom SQL queries if provided in the zip.
+
+###### 3. Logging
+
+- Log all update actions (successes, errors, changes).
+
+###### 4. Version Control
+
+- Track the current application version and compare with the zip's version.
+- Ensure compatibility between the current app version and updates.
+
+###### 5. Security & Permissions
+
+- Validate uploaded zip files for authenticity.
+- Ensure proper file permissions for security.
+
+---
+
+## **Contributing**
+
+Contributions are welcome! If you'd like to add features, fix bugs, or improve documentation, feel free to fork the repository and submit a pull request.
+
+---
+
+## **License**
+
+This package is open-sourced software licensed under the MIT license.
+
+---
+
+## **Support**
+
+If you encounter issues or have questions, please create an issue on the [GitHub Repository](https://github.com/mdabdullajobayer/Laravel-Application-System-Updater).
