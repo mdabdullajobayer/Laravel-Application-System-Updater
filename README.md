@@ -49,7 +49,8 @@ To use this package, the Laravel application and server environment must meet th
 #### **Laravel Version:**
 
 - Laravel `^9.0` or higher (compatible with PHP 8.0)
-
+- Ensure that your `storage` directory is properly linked in a Laravel application
+  
 ## **Installation**
 
 ### **1. Require the Package**
