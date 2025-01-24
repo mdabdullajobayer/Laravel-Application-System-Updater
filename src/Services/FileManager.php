@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\File;
 
 class FileManager
 {
-
-    // Comment Added
     protected $uploadDir = 'storage/app/uploads/';
 
     public function uploadAndExtract($file)
@@ -29,7 +27,7 @@ class FileManager
         $zip = new \ZipArchive;
 
         // Full storage path to the uploaded zip file
-        $fullPath = storage_path('app/private/' . $filePath);
+        $fullPath = storage_path('app/' . $filePath);
 
         if (!file_exists($fullPath)) {
             throw new \Exception('File not found at: ' . $fullPath);
