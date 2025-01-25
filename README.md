@@ -57,19 +57,25 @@ To use this package, the Laravel application and server environment must meet th
 
 Run the following Composer command:
 
-`composer require jobayer/laravel-application-system-updater`
+```bash 
+composer require jobayer/laravel-application-system-updater
+```
 
 ### **2. Publish Configuration and Views**
 
 Publish the configuration file and views for customization:
 
-`php artisan vendor:publish --tag=views`
+```bash 
+php artisan vendor:publish --tag=views
+```
 
 ### **3. Register the Service Provider**
 
 If you're using Laravel 5.5 or later, the package will automatically register itself. For older versions, manually register the service provider in `config/app.php`:
 
-`'providers' => [Jobayer\LaravelAppUpdater\ServiceProvider::class,],`
+```php
+'providers' => [Jobayer\LaravelAppUpdater\ServiceProvider::class,],
+```
 
 ---
 
