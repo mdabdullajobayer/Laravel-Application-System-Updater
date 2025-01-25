@@ -28,8 +28,6 @@ class PakageServiceProvider extends ServiceProvider
     public function boot()
     {
         // Load routes
-        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-
         $this->publishes([
             __DIR__ . '/resources/views' => resource_path('views/Jobayer/SystemUpdater'),
         ], 'views');
