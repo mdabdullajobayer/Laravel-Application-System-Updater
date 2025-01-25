@@ -79,7 +79,11 @@ If you're using Laravel 5.5 or later, the package will automatically register it
 
 Use the following routes to handle updates:
 
-`https://Your-Application-url.com/system-updater `
+```php
+use Jobayer\LaravelAppUpdater\Http\Controllers\UpdaterController;
+Route::get('/system-updater', [UpdaterController::class, 'index']);
+Route::post('/system-updater', [UpdaterController::class, 'processUpdate']);
+```
 
 ---
 ##  **Workflow**
